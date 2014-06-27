@@ -28,19 +28,20 @@ public class Mario {
         while ( n < 10 || n > 32 );
         
         do {
-            System.out.println( "1 for screen, 0 for file:" );
+            System.out.println( "0 for screen, 1 for file:" );
             filen = in.nextInt();
         }
         while ( filen < 0 && filen > 1 );
         
         Pyramid pyramid = new Pyramid( n );
-        PyramidScreenPrinter screenPrinter = new PyramidScreenPrinter( pyramid );
-        PyramidFilePrinter filePrinter = new PyramidFilePrinter( pyramid );
+        PyramidPrinter printer = null;
         
         if( filen == 0 ) 
-            filePrinter.output();
+            printer = PrinterFactory.PyramidScreenPrinter( pyramid );
         else 
-            screenPrinter.output();
+            printer = PrinterFactory.PyramidFilePrinter( pyramid );
+        
+        printer.output();
     }
     
 }
