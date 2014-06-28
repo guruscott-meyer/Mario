@@ -12,11 +12,22 @@ package mario;
  */
 public class PrinterFactory {
     
-    public static PyramidPrinter PyramidFilePrinter( Pyramid pyramid ) {
+    private PrinterFactory() {}
+    
+    private static PrinterFactory printerFactory;
+    
+    public static PrinterFactory getInstance() {
+        if( printerFactory == null ){
+            printerFactory = new PrinterFactory();
+        }
+        return printerFactory;
+    }
+    
+    public PyramidPrinter PyramidFilePrinter( Pyramid pyramid ) {
         return new PyramidFilePrinter( pyramid );
     }
     
-    public static PyramidPrinter PyramidScreenPrinter( Pyramid pyramid ) {
+    public PyramidPrinter PyramidScreenPrinter( Pyramid pyramid ) {
         return new PyramidScreenPrinter( pyramid );
     }
     

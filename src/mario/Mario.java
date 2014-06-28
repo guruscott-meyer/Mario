@@ -1,24 +1,22 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package mario;
 
 import java.util.Scanner;
 import java.lang.*;
 
-/**
- *
- * @author admin
- */
 public class Mario {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
+        Mario mario = new Mario( PrinterFactory.getInstance() );
+        mario.start();
+    }
+    
+    private PrinterFactory printerFactory;
+
+    private Mario(PrinterFactory instance) {
+        this.printerFactory = instance;
+    }
+    
+    public void start() {
         Scanner in = new Scanner(System.in);
         int n, filen;
         do {
@@ -37,11 +35,10 @@ public class Mario {
         PyramidPrinter printer = null;
         
         if( filen == 0 ) 
-            printer = PrinterFactory.PyramidScreenPrinter( pyramid );
+            printer = printerFactory.PyramidScreenPrinter( pyramid );
         else 
-            printer = PrinterFactory.PyramidFilePrinter( pyramid );
+            printer = printerFactory.PyramidFilePrinter( pyramid );
         
         printer.output();
     }
-    
 }
