@@ -14,8 +14,15 @@ public class PyramidScreenPrinter implements PyramidPrinter {
     
     private Pyramid pyramid;
     
-    public PyramidScreenPrinter( Pyramid pyramid ) {
+    public PyramidScreenPrinter() {
+    }
+    
+    public void setPyramid( Pyramid pyramid ) {
         this.pyramid = pyramid;
+    }
+    
+    public Pyramid getPyramid() {
+        return this.pyramid;
     }
     
     @Override
