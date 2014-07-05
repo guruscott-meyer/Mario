@@ -35,6 +35,7 @@ public class Mario {
     }
     
     public void start() {
+        ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
         Scanner in = new Scanner(System.in);
         int n, filen;
         do {
