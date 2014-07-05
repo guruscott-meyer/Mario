@@ -12,6 +12,6 @@ package mario;
  */
 public interface PyramidPrinter {
     
-    public void output();
+    public void output( Pyramid pyramid );
 
 }

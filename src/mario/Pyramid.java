@@ -11,24 +11,31 @@ package mario;
  * @author admin
  */
 public class Pyramid {
-    private String pyramid;
     
-    public Pyramid( int rows ) {
-        
+    private int rows;
+    
+    public Pyramid() {
+    }
+    
+    public void setRows( int rows ) {
+        this.rows = rows;
+    }
+    
+    public int getRows() {
+        return this.rows;
+    }
+    
+    public String toString() {
         StringBuilder builder = new StringBuilder();
         
-        for( int i = 0; i < rows; i++ ) {
-            for( int j = 0; j < rows - i; j++ )
+        for( int i = 0; i < this.rows; i++ ) {
+            for( int j = 0; j < this.rows - i; j++ )
                 builder.append( " " );
             for( int k = 0; k < i + 2; k++ )
                 builder.append( "#" );
             builder.append( "\n" );
             }
         
-        pyramid = builder.toString();
-    }
-    
-    public String toString() {
-        return this.pyramid;
+        return builder.toString();
     }
 }

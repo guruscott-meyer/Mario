@@ -15,19 +15,26 @@ import java.io.IOException;
  */
 public class PyramidFilePrinter implements PyramidPrinter {
     
-    Pyramid pyramid;
-
-    public PyramidFilePrinter( Pyramid pyramid ) {
-        this.pyramid = pyramid;
+    private String file;
+    
+    public PyramidFilePrinter() {
+    }
+    
+    public void setFile( String file ) {
+        this.file = file;
+    }
+    
+    public String getFile() {
+        return this.file;
     }
     
     @Override
-    public void output() {
+    public void output( Pyramid pyramid ) {
        
         FileWriter writer = null;
         
         try {
-            writer = new FileWriter( "mario.txt" );
+            writer = new FileWriter( file );
             writer.write( pyramid.toString() );
         } 
         catch( IOException ioe ) {

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+
+<bean id="mario" class="mario.Mario">
+
+    <property name="pyramid">
+        <ref local="pyramid" />
+    </property>
+    
+    <property name="pyramidFilePrinter">
+        <ref local="pyramidFilePrinter"/>
+    </property>
+    
+    <property name="pyramidScreenPrinter">
+        <ref local="pyramidScreenPrinter"/>
+    </property>
+    
+</bean>
+
+<bean id="pyramid" class="mario.Pyramid" />
+    
+<bean id="pyramidFilePrinter" class="mario.PyramidFilePrinter">
+    <property name="file" value="mario.txt" />
+</bean>
+
+<bean id="pyramidScreenPrinter" class="mario.PyramidScreenPrinter"/>
+
+</beans>

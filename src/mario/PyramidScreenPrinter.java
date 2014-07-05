@@ -12,14 +12,12 @@ package mario;
  */
 public class PyramidScreenPrinter implements PyramidPrinter {
     
-    private Pyramid pyramid;
     
-    public PyramidScreenPrinter( Pyramid pyramid ) {
-        this.pyramid = pyramid;
+    public PyramidScreenPrinter() {
     }
     
     @Override
-    public void output() {
+    public void output( Pyramid pyramid ) {
         
         System.out.print( pyramid.toString() );
         
